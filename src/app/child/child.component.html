@@ -1,0 +1,26 @@
+<div *ngIf="number$ | async as n">Ngif/Async {{ n }}</div>
+
+<div *ngrxLet="number$ as n">NgrxLet as {{ n }}</div>
+<div *ngrxLet="number$; let n">NgrxLet let {{ n }}</div>
+
+<div
+  *ngrxLet="
+    number$ as n;
+    let e = $error;
+    let c = $complete;
+    suspenseTpl: loading
+  "
+>
+  <ng-container *ngIf="!e && !c">{{ n }} </ng-container>
+
+  <p *ngIf="e">There is an error: {{ e }}</p>
+  <p *ngIf="c">Observable is completed.</p>
+</div>
+
+<ng-template #loading>
+  <p>Loading...</p>
+</ng-template>
+
+<div *ngrxLet="userData.pi.fname as firstname">
+  {{ firstname }}
+</div>
