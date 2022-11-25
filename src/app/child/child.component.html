@@ -1,4 +1,4 @@
-<div *ngIf="number$ | async as n">Ngif/Async {{ n }}</div>
+<div *ngIf="number$ | ngrxPush as n">Ngif/Async {{ n }}</div>
 
 <div *ngrxLet="number$ as n">NgrxLet as {{ n }}</div>
 <div *ngrxLet="number$; let n">NgrxLet let {{ n }}</div>
